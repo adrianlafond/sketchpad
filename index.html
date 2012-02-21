@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>sketchpad</title>
+
+	<link rel="stylesheet" href="css/sketchpad.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="js/lib/json2.js"></script>
+	<script src="js/lib/underscore-min-1.3.1.js"></script>
+	<script src="js/lib/backbone-min.js"></script>
+	<script src="js/lib/disbranded.backbone.cookie.js"></script>
+	<script src="js/lib/disbranded.Cookie.js"></script>
+	
+	<script src="js/sketchpad/sketchpad.js"></script>
+	<script src="js/sketchpad/model/Sketch.js"></script>
+	<script src="js/sketchpad/model/Pad.js"></script>
+	<script src="js/sketchpad/model/Prefs.js"></script>
+	<script src="js/sketchpad/view/CanvasView.js"></script>
+	<script src="js/sketchpad/view/ToolsView.js"></script>
+	<script src="js/sketchpad/view/AppView.js"></script>
+	<script src="js/sketchpad/controller/SketchController.js"></script>
+	
+	<script>
+	var app;
+	$(function() {
+		app = sketchpad.main();
+	});
+	</script>
+	
+</head>
+
+<body>
+
+
+	<div id="sketchpad">
+		
+		<div id="sketchcanvas">
+			<canvas width="640" height="480"></canvas>
+		</div>
+		
+		<div id="sketchtools">
+			
+			<div id="sketchtoolspanel">
+				
+				<div class="padadmin">
+					<ul>
+						<li><a href="#" class="prev">&lt;</a></li>
+						<li><a href="#" class="next">&gt;</a></li>
+						<li><a href="#" class="delete">x</a></li>
+						<li><a href="#" class="add">+</a></li>
+					</ul>
+				</div>
+				
+				<div class="brushsize">
+					<ul>
+						<li><a href="#" class="brush-24">24</a></li>
+						<li><a href="#" class="brush-18">18</a></li>
+						<li><a href="#" class="brush-14">14</a></li>
+						<li><a href="#" class="brush-12">12</a></li>
+						<li><a href="#" class="brush-10">10</a></li>
+						<li><a href="#" class="brush-8">8</a></li>
+						<li><a href="#" class="brush-6">6</a></li>
+						<li><a href="#" class="brush-4">4</a></li>
+						<li><a href="#" class="brush-2">2</a></li>
+					</ul>
+				</div>
+				
+				<div class="palette">
+					<ul>
+						<li><a href="#" class="black">black</a></li>
+						<li><a href="#" class="white">white</a></li>
+						<li><a href="#" class="silver">silver</a></li>
+						<li><a href="#" class="gray">gray</a></li>
+						<li><a href="#" class="red">red</a></li>
+						<li><a href="#" class="maroon">maroon</a></li>
+						<li><a href="#" class="yellow">yellow</a></li>
+						<li><a href="#" class="olive">olive</a></li>
+						<li><a href="#" class="lime">lime</a></li>
+						<li><a href="#" class="green">green</a></li>
+						<li><a href="#" class="aqua">aqua</a></li>
+						<li><a href="#" class="teal">teal</a></li>
+						<li><a href="#" class="blue">blue</a></li>
+						<li><a href="#" class="navy">navy</a></li>
+						<li><a href="#" class="fuchsia">fuchsia</a></li>
+						<li><a href="#" class="purple">fuchsia</a></li>
+					</ul>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
+
+</body>
+</html>
