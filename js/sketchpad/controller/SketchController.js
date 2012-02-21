@@ -118,6 +118,8 @@ sketchpad.controller.SketchController = Backbone.Router.extend({
 			if (sketch) {
 				self.sketch = sketch;
 				self.mvc.v.canvas.drawFromModel(sketch.get('marks'));
+				self.mvc.v.canvas.changeBrushSize( self.mvc.m.prefs.get('brushSize') );
+				self.mvc.v.canvas.changeBrushColor( self.mvc.m.prefs.get('brushColor') );
 			} else {
 				throw new Error(self.sketchErrorMessage);
 			}
