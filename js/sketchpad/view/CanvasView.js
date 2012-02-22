@@ -55,6 +55,9 @@ sketchpad.view.CanvasView = Backbone.View.extend({
 	},
 
 
+	/**
+	 * Erase canvas.
+	 */
 	clear: function() {
 		this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
 	},
@@ -90,6 +93,9 @@ sketchpad.view.CanvasView = Backbone.View.extend({
 
 	
 	// PRIVATE METHODS
+	/**
+	 * Mouse/touch down: begin draw.
+	 */
 	onPress: function(e) {
 		var self = this;
 		this.$el.on('mousemove touchmove', function(e) {
@@ -102,7 +108,13 @@ sketchpad.view.CanvasView = Backbone.View.extend({
 		this.onDrag(e);
 	},
 	
-	
+	/**
+	 * While is mouse/touch is down and moving, draws a line and fires a
+	 * custom 'mark' event that passes a object with start mouse position,
+	 * end mouse position, color, and size as a payload. This way, a controller
+	 * can listen for this event, instead of this view needing to have direct
+	 * knowledge of a model or controller itself.
+	 */
 	onDrag: function(e) {
 		this.context.beginPath();
 		var newPos = this.getMousePos(e);
@@ -124,11 +136,19 @@ sketchpad.view.CanvasView = Backbone.View.extend({
 	},
 	
 	
+	/**
+	 * Mouse/touch up/release, so stop drawing.
+	 */
 	onRelease: function(e) {
 		this.$el.off('mousemove touchmove');
 		this.$el.off('mouseleave mouseup touchend touchcancel');
 	},
 	
+	
+	/**
+	 * @returns {Object} with x, y mouse position relative to upper left corner
+	 * of canvas and also to line width.
+	 */
 	getMousePos: function(e) {
 		var elPos = this.$el.offset();
 		return {
